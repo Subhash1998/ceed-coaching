@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html >
+<head>
+  {%load staticfiles %}
+  <meta charset="utf-8">
+  <link href="{%static 'images/favicon.ico'%}" rel="icon" type="image/x-icon" />
+  <link href="{%static 'images/favicon.ico'%}" rel="shortcut icon" type="image/x-icon" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academy</title>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="{%static 'fonts/foundation-icons/foundation-icons.css'%}">
+  
+  <link rel="stylesheet" href="{%static 'fonts/foundation-icons/foundation-icons.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css" />
+  <link rel="stylesheet" href="{%static '/css/owl.theme.css'%}">
+  <link rel="stylesheet" href="{%static '/css/owl.carousel.css'%}">
+  <link rel="stylesheet" href="{%static '/css/custom.css'%}">
+  <link rel="stylesheet" href="{%static '/css/landing.css'%}">
+
+    
+
+</head>
+
+<body  >
+
+<!--===================================
+    Navigation Bar
+    ===================================-->  
+<!-------------------------------------------------------------->
+
+<form  action="{{ action }}"  name="payuForm" method="post">    
+    {% csrf_token %}        
+    <input type="hidden" name="key" value="{{ key }}" />            
+    <input type="hidden" name="hash" value="{{ hash }}"/>            
+    <input type="hidden" name="txnid" value="{{ txnid }}" />
+    <input type="hidden" name="amount" value="{{ amount }}" />
+    <input type="hidden" name="email" value="{{ email }}" />
+    <input type="hidden" name="firstname" value="{{ firstname }}" />
+    <input type="hidden" name="phone" value="{{ phone }}" />
+    <input type="hidden" name="productinfo" value="{{ productinfo }}"/>
+    <input type="hidden" name="surl" value="{{ surl }}"/>
+    <input type="hidden" name="furl" value="{{ furl }}" />
+    <input type="hidden" name="service_provider" value="{{ service_provider }}" />
+    <div style="margin-top:5em" align="center" class="hero" >
+    <div class="title" style=" background-color: #fff ">
+        
+        <div style=" color: #3d3d3d ">
+        Just one more step!
+        </div>
+        
+    </div>
+    <div  class="box" style="margin:.75em">
+    <table class="table"style="width:100%">
+        <tr>
+            <th>Fields</th>
+            <th>Details</th> 
+           
+        </tr>
+        <tr>
+            <td>Purpose </td>
+            <td> {{productinfo}}</td>
+        </tr>
+        <tr>
+           
+            <td>Name </td> 
+            <td>{{firstname}}</td> 
+        </tr>
+       
+        <tr>
+            
+            <td>Amount</td>
+            <td class="is-hidden-tablet "style="overflow-x: scroll"> {{amount}}</td>
+            <td class="is-hidden-mobile "> {{amount}}</td>
+        </tr>
+
+        <tr>
+            
+            <td>Email</td>
+            <td class="is-hidden-tablet "style="overflow-x: scroll"> {{email}}</td>
+            <td class="is-hidden-mobile "> {{email}}</td>
+        </tr>
+        
+        <tr>
+            
+            <td>Mobile</td>
+            <td>{{phone}}</td>
+        </tr>
+        
+        </table>
+        <hr style="width:5"/>
+        <p align="center">After clicking Pay Now You will be redirected to PayUMoney Secure Gateway</p>
+        <hr style="width:5"/>
+        <div align="center">
+          <input type=submit class="button is-success" value="Pay Now">
+        </div>  
+    </div>
+    </div>
+</form>
+<!-------------------------------------------------------------->
+        
+
+    
+</body>
+</html> 
+

@@ -1,0 +1,59 @@
+{% extends "mysite/dashboard.html" %}
+{% load static from staticfiles %}
+{% load widget_tweaks %}
+
+{% block body %}
+<div class="col-md-12">
+    <div class="card">
+        <form method="post" class="form-horizontal">
+
+            <div class="card-header card-header-text" data-background-color="rose">
+                <h4 class="card-title">Add Student</h4>
+            </div>
+            <div class="card-content">
+                    {% csrf_token %}
+
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                    {% for field in form.visible_fields %}
+                    <div class="row">
+                        <label for="{{field.id_for_label}}" class="col-sm-2 label-on-left">{{field.label}}</label>
+                        <div class="col-sm-10">
+                            <div class="form-group label-floating is-empty {%if field.errors%}has-error{%endif%}">
+                                {{ field|add_class:'form-control' }}
+                            <span class="material-input"></span>
+                            {% if field.errors %}
+                                <span>{{field.errors}}</span>
+                            {% else %}
+                                <span class="help-block">{{field.help_text}}</span>
+                            {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-sm-10">
+                        <div class="form-group form-button">
+                            <button type="submit" class="btn btn-fill btn-rose pull-right">Submit<div class="ripple-container"></div></button>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+   <script type="text/javascript">
+    $(function () {
+        $('#id_dob').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        $('#id_joining_date').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+</script>
+{% endblock %}

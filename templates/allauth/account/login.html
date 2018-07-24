@@ -1,0 +1,73 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load staticfiles %}
+{% block title %}{% trans "Sign In" %}{% endblock %}
+
+{% block caption %}{% trans "Sign in" %}{% endblock %}
+
+{% block body %}
+{% get_providers as socialaccount_providers %}
+
+{% load widget_tweaks %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<br><br><br><br><br><br><br>
+<b>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</b>
+{% endif %}
+<br><br><br>
+<form action="{% url 'account_login' %}" method="post">
+	{% csrf_token %}
+
+	{% if form.non_field_errors %}
+	<div class="row">
+		<div class="col s12">
+		  <ul class="collection">
+		    {% for error in form.non_field_errors %}
+		      <li class="collection-item orange-text error">{{ error }}</li>
+		    {% endfor %}
+		  </ul>
+		</div>
+	</div>
+	{% endif %}
+
+	{% for field in form %}
+		{% if field.label == 'Remember Me' %}
+			{{field.label}}
+		{% endif %}
+		<div class="row">
+	    	{{ field|add_class:'form-control' }}
+	    	<label for="{{ field.id_for_label }}" >
+	    		<span class="form-field-error">{{ field.errors.as_text }}</span>
+	    	</label>
+	    </div>
+
+	{% endfor %}
+    {% if redirect_field_value %}
+    <input  type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <p><a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></p>
+	<button class="btn waves-effect waves-light teal darken-2" type="submit" name="action">
+    	{% trans "Sign In" %}
+  	</button>
+</form>
+
+{% endblock %}

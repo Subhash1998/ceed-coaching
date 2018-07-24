@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+  <html>
+  	<head>
+      <title>Doctor Appointment</title>
+      <!--Import Google Icon Font-->
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">  
+      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+       <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>     
+      <link rel="stylesheet" href="appint_style.css">        
+    </head>
+
+  <body>
+  	<ul id="dropdown1" class="dropdown-content">
+  		<li><a href="{% url 'appoint:patient_register' %}">As Patient</a></li>
+  		<li><a href="{% url 'appoint:doctor_register' %}">As Doctor</a></li>
+	</ul>
+
+
+	<ul id="dropdown2" class="dropdown-content">
+  		<li><a class="dropdown-item" onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer;" >As Doctor</a></li>
+  		<li><a class="dropdown-item" onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor: pointer;" >As Patient</a></li>
+	</ul>
+	
+	<div class="topnav" id="myTopnav">
+
+  			<a href="{% url 'appoint:home' %}" class="brand-logo">Home</a>
+      	
+      	
+      		<a class="dropdown-button" href="#!" data-activates="dropdown2">Login<i class="material-icons right">arrow_drop_down</i></a>
+      	
+      	
+      		<a class="dropdown-button" href="#!" data-activates="dropdown1">Register<i class="material-icons right">arrow_drop_down</i></a>
+
+      		<a href="sass.html">About Us</a>
+  		
+      	
+        	<a href="badges.html">Contact us</a>
+      	
+      
+  		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+	<div class="parallax-container">
+     <div class="parallax"></div>
+ 	</div><br><br>
+    
+    <div class="row">
+
+<div class="col-3">
+  .
+</div>
+
+<div class="col-6">
+  <p><h3 style="color: hotpink; max-width: 100%;"><b>Instant appointment with doctors.<br>Guaranteed.</b></h3>
+            <h5><br>
+              <ul>
+                  <li>100,000 Verified doctors</li>
+                <li>3M+ Patient recommendations</li>
+                <li>25M Patients/year </li>
+              </ul>
+            </h5>
+          </p>  
+</div>
+
+<div class="col-3 right">
+  <video class="responsive-video" autoplay controls loop class="video" style="max-width: 100%; height: 600px;">
+            <source src="https://www.practo.com/bundles/practopractoapp/images/homepage/find_animation_last.webm" type="video/mp4">
+          </video>
+</div>
+
+</div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/appoint/login/" id="login_form" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://cdn0.iconfinder.com/data/icons/PRACTIKA/256/user.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+     <div class="input-field col s12">
+        <input id="email" type="text" class="validate" name="username" required>
+          <label for="email">Username</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="email" type="password" class="validate" name="password" required>
+          <label for="email">Password</label>
+      </div>
+        
+      <button type="submit">Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<br><br><br>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Poppins:700" rel="stylesheet">
+   <div class="row">
+    <div class="col-2">
+      .
+    </div>
+    <div class="col-3">
+      <h5 id="1">0</h5>
+        <h4>Satisfied Customer</h4>
+    </div>
+    <div class="col-2">
+      <h5 id="2">0</h5>
+        <h4>Made Treatment</h4>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-2">
+      <h5 id="3">0</h5>
+        <h4>Cured Patient</h4>
+    </div>
+    <div class="col-2">
+      <h5 id="4">0</h5>
+        <h4>Checkups</h4>
+    </div>
+</div>
+<div class="col-1">
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a type="button" class="btn-floating btn-large btn-fb" style="background-color:  #55ACEE;"><i class="fa fa-facebook"></i></a></li>
+      <li><a class="btn-floating btn-large btn-tw" style="background-color:  #3B5998;"><i class="fa fa-twitter"></i></a></li>
+      <li><a class="btn-floating btn-large btn-gplus" style="background-color: #dd4b39;"><i class="fa fa-google-plus"></i></a></li>
+      <li><a class="btn-floating btn-large btn-slack" style="background-color:  #55ACEE;"><i class="fa fa-slack"></i></a></li>
+    </ul>
+  </div>
+</div>
+<br>
+    <center>
+      <img src="http://www.clouderp4.com/images/hm_da.gif" width="100px" height="400px">
+   </center>
+		<br><br>
+<footer>
+<center>
+<div class="row" style="background-color: lightgrey;">
+  <div class="col-3">
+    <ul class="unstyled">
+      <li class="section-title">DELHI</li>
+      <li><a href="https://www.lybrate.com/delhi/dentist">Dentist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/general-physician">General Physicians in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/cardiologist">Cardiologist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/gynaecologist">Gynaecologist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/psychiatrist">Psychiatrist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/dermatologist-cosmetologist">Dermatologist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/neurologist">Neurologist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/urologist">Urologist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/ophthalmologist">Ophthalmologist in Delhi</a></li>
+      <li><a href="https://www.lybrate.com/delhi/sexologist">Sexologist in Delhi</a></li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <ul class="unstyled">
+      <li class="section-title">MUMBAI</li>
+      <li><a href="https://www.lybrate.com/mumbai/dentist">Dentist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/general-physician">General Physicians in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/cardiologist">Cardiologist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/gynaecologist">Gynaecologist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/psychiatrist">Psychiatrist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/dermatologist-cosmetologist">Dermatologist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/neurologist">Neurologist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/urologist">Urologist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/ophthalmologist">Ophthalmologist in Mumbai</a></li>
+      <li><a href="https://www.lybrate.com/mumbai/sexologist">Sexologist in Mumbai</a></li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <ul class="unstyled">
+      <li class="section-title">CHENNAI</li>
+      <li><a href="https://www.lybrate.com/chennai/dentist">Dentist in Chennai</a></li>
+      <li><a href="https://www.lybrate.com/chennai/general-physician">General Physicians in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/cardiologist">Cardiologist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/gynaecologist">Gynaecologist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/psychiatrist">Psychiatrist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/dermatologist-cosmetologist">Dermatologist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/neurologist">Neurologist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/urologist">Urologist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/ophthalmologist">Ophthalmologist in Chennai</a></li>
+  <li><a href="https://www.lybrate.com/chennai/sexologist">Sexologist in Chennai</a></li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <ul class="unstyled">
+      <li class="section-title">BANGALORE</li>
+      <li><a href="https://www.lybrate.com/bangalore/dentist">Dentist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/general-physician">General Physicians in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/cardiologist">Cardiologist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/gynaecologist">Gynaecologist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/psychiatrist">Psychiatrist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/dermatologist-cosmetologist">Dermatologist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/neurologist">Neurologist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/urologist">Urologist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/ophthalmologist">Ophthalmologist in Bangalore</a></li>
+  <li><a href="https://www.lybrate.com/bangalore/sexologist">Sexologist in Bangalore</a></li>
+    </ul>
+  </div>
+</div>
+ </div>         
+        
+      </div>
+        <center><div class="section-title">Lybrate.com</div>
+        <div>
+          <ul class="unstyled">
+            <a href="https://www.lybrate.com/about">About Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.lybrate.com/jobs">Careers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.lybrate.com/mobile">Mobile Apps</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://blog.lybrate.com">Blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.lybrate.com/terms">Terms of Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.lybrate.com/privacy">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.lybrate.com/press">Press</a>
+          </ul></center>
+        </div> 
+    </div>
+  </center>
+</footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/1.1.6/waypoints.min.js'></script>
+  	<script>
+	function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+} 
+
+$('#1').waypoint(function() {
+  increment(1, 429);
+}, {offset: '75%'});
+
+$('#2').waypoint(function() {
+  increment(2, 530);
+}, {offset: '75%'});
+
+$('#3').waypoint(function() {
+  increment(3,  1287);
+}, {offset: '75%'});
+
+$('#4').waypoint(function() {
+  increment(4, 1100);
+}, {offset: '75%'});
+
+function increment(elem, finalVal) {
+  var currVal = parseInt(document.getElementById(elem).innerHTML, 10);
+  if (currVal < finalVal) {
+    currVal+=30;
+    document.getElementById(elem).innerHTML = currVal;
+
+    setTimeout(function() {
+      increment(elem, finalVal);
+    }, 40)
+  }
+};
+
+
+</script>
+  </body>
+ </html>

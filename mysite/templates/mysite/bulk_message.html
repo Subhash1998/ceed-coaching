@@ -1,0 +1,52 @@
+{% extends "mysite/dashboard.html" %}
+{% load static from staticfiles %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header card-header-icon" data-background-color="rose">
+                <i class="material-icons">mail_outline</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">Send Sms</h4>
+                <form method="GET" action="{% url 'mysite:bulk_sms' %}">
+                    <div class="form-group label-floating is-empty">
+                        <textarea type="sms" name="message" class="form-control" rows="6">{{ message }}</textarea><br><br>
+                         <select name="class" class="form-control">
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="All">All</option>
+                          </select>
+                    <span class="material-input"></span></div>
+                    <button onclick="demo1.showNotification('top','center')" type="submit" class="btn btn-fill btn-rose">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+demo1 = {
+ showNotification: function(from, align) {
+        type = ['', 'info', 'success', 'warning', 'danger', 'rose', 'primary'];
+
+        color = Math.floor((Math.random() * 6) + 1);
+
+        $.notify({
+            icon: "notifications",
+            message: "Message sent."
+
+        }, {
+            type: type[color],
+            timer: 3000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    }
+}
+</script>
+{% endblock %}
