@@ -146,7 +146,7 @@ def send_sms_api(request, pk):
             'sender': 'SPECTR',
             'route': '4',
             'country': '91',
-            'authkey': '210112APJgCTharC5ad321b5',
+            'authkey': '',
             'message': message,
             'mobiles': [[student.mobile]]
         }
