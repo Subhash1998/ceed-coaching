@@ -126,7 +126,7 @@ def send_student_sms(request,pk):
     message = "Dear {} {}\nIt seems you enquired about our different services. " \
               "We are excited to inform you that we have some special offers for you. " \
               "Take the first step towards a fit and healthy you today. " \
-              "Please visit us or give a call/missed call at 9691710947 to know more.\nRegards,\nParitosh Kshatri"\
+              "Please visit us or give a call/missed call at 1998 to know more.\nRegards,\nIncharge"\
         .format(student.first_name, student.last_name, student.mobile)
     context = {
         'message': message,
@@ -177,7 +177,7 @@ def send_bulk_sms(request):
     message = "Dear Student\nIt seems you enquired about our different services. " \
               "We are excited to inform you that we have some special offers for you. " \
               "Take the first step towards a fit and healthy you today. " \
-              "Please visit us or give a call/missed call at 9691710947 to know more.\nRegards,\nParitosh Kshatri"
+              "Please visit us or give a call/missed call at 1998 to know more.\nRegards,\nIncharge"
     context = {
         'message': message,
     }
